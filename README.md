@@ -12,6 +12,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 2. npm i --save bootstrap
 3. npm install --save @ng-bootstrap/ng-bootstrap
 4. npm install @angular/localize
+5. npm i -g firebase-tools (as admin from terminal only)
 
 ## Code scaffolding
 
