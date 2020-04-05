@@ -1,4 +1,4 @@
-# EMTHT8
+# EMTH-T8
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
@@ -10,6 +10,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 1. npm install firebase @angular/fire --save
 2. npm i --save bootstrap
+3. npm install --save @ng-bootstrap/ng-bootstrap
+4. npm install @angular/localize
 
 ## Code scaffolding
 
