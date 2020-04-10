@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ngx-custom-validators';
+import { DataTableModule } from 'angular5-data-table';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -49,6 +50,7 @@ import { ProductService } from './product.service';
     BrowserModule,
     FormsModule,
     CustomFormsModule,
+    DataTableModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,

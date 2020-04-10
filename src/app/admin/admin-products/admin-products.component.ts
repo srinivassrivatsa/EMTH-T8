@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from 'src/app/product.service';
 import { Subscription } from 'rxjs/Subscription';
-import { SnapshotAction } from '@angular/fire/database/database';
+import { DataTableResource } from 'angular5-data-table';
 
 @Component({
   selector: 'app-admin-products',
@@ -10,16 +10,34 @@ import { SnapshotAction } from '@angular/fire/database/database';
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
   products;
-  filteredProducts;
   subscription: Subscription;
+  tableResource: DataTableResource<any>;
+  items = [];
+  itemCount;
   
   constructor(private productService: ProductService) {
-    this.subscription = this.productService.getAll().subscribe(products => this.filteredProducts = this.products = products);
+    this.subscription = this.productService.getAll().subscribe(products => {
+      this.products = products;
+      this.initializeTable(products);
+    });
+  }
+
+  private initializeTable(products) {
+    this.tableResource = new DataTableResource(products);
+    this.tableResource.query({offset: 0}).then(itmes => this.items = itmes);
+    this.tableResource.count().then(count => this.itemCount = count);
   }
 
   filter(query: String) {
-    this.filteredProducts = (query) ?
-      this.products.filter(p => p.payload.val().title.toLowerCase().includes(query.toLowerCase())) : this.products
+    let filteredProducts = (query) ?
+      this.products.filter(p => p.payload.val().title.toLowerCase().includes(query.toLowerCase())) : this.products;
+    
+    this.initializeTable(filteredProducts);
+  }
+
+  reloadItems(params) {
+    if(!this.tableResource) return;
+    this.tableResource.query(params).then(itmes => this.items = itmes);
   }
 
   ngOnInit(): void {}

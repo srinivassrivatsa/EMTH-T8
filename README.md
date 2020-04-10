@@ -15,6 +15,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 5. npm i -g firebase-tools (as admin from terminal only)
 6. npm install --save @types/rx
 7. npm i ngx-custom-validators --save
+8. npm i angular5-data-table --save
 
 ## Code scaffolding
 
