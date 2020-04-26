@@ -1,0 +1,6 @@
+<img [src]="product.payload.val().imageUrl" class="card-img-top">
+<div class="card-body">
+    <h5 class="card-title">{{ product.payload.val().title }}</h5>
+    <p class="card-text">{{ product.payload.val().price | currency:'INR':true }}</p>
+    <a href="#" class="btn btn-primary">Add to cart</a>
+</div>
