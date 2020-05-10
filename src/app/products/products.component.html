@@ -7,7 +7,7 @@
             <ng-container *ngFor="let p of filteredProducts; let i = index">
                 <div class="col">
                     <div class="card" style="width: 15rem;">
-                        <product-card [product]="p"></product-card>
+                        <product-card [product]="p" [shopping-cart]="cart"></product-card>
                     </div>
                 </div>
                 <div *ngIf="(i+1) % 3 == 0" class="w-100"></div>

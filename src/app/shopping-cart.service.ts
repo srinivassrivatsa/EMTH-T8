@@ -16,7 +16,8 @@ export class ShoppingCartService {
     })
   }
 
-  private getCart(cartId: string) {
+  async getCart() {
+    let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId);
   }
 
@@ -36,7 +37,7 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCartId();
     let item$ =  this.getItem(cartId, product.key);
     item$.valueChanges().pipe(take(1)).subscribe((item:any) => {
-      item$.set({product: product.payload.val(), quantity: (item==null? 0 : item.quantity) + 1});
+      item$.set({product: product.payload.val(), quantity: (item==null ? 0 : item.quantity) + 1});
     });
   }
 }
