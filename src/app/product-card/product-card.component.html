@@ -4,5 +4,5 @@
     <p class="card-text">{{ product.payload.val().price | currency:'INR':true }}</p>
 </div>
 <div class="card-footer">
-    <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+    <button (click)="addToCart(product)" class="btn btn-primary btn-block">Add to cart</button>
 </div>
